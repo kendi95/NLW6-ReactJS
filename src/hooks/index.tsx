@@ -1,4 +1,4 @@
-import { createContext, useContext, FC, useState , useEffect } from 'react';
+import { createContext, FC, useState , useEffect } from 'react';
 
 import { firebase, auth } from '../services/firebase';
 
@@ -13,7 +13,7 @@ interface AppContextProps {
   signInWithGoogle: () => Promise<void>;
 }
 
-const AppContext = createContext({} as AppContextProps)
+export const AppContext = createContext({} as AppContextProps)
 
 export const AppProvider: FC = ({ children }) => {
 
@@ -83,8 +83,4 @@ export const AppProvider: FC = ({ children }) => {
     </AppContext.Provider>
   );
 
-}
-
-export const useApp = () => {
-  return useContext(AppContext);
 }
